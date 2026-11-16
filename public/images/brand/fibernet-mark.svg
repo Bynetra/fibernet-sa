@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68" fill="none">
+  <title>FiberNet fiber-optic mark</title>
+  <g stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 61C5 35 19 11 43 6" stroke="#0B2858"/>
+    <path d="M5 61C9 39 26 19 52 14" stroke="#174985"/>
+    <path d="M5 61C15 42 36 27 60 24" stroke="#147DB5"/>
+    <path d="M5 61C16 47 33 36 52 35" stroke="#1599C8"/>
+    <path d="M5 61C15 52 28 46 42 46" stroke="#20A6CF"/>
+  </g>
+  <circle cx="43" cy="6" r="3.5" fill="#0B2858"/>
+  <circle cx="52" cy="14" r="3.5" fill="#174985"/>
+  <circle cx="60" cy="24" r="3.5" fill="#147DB5"/>
+  <circle cx="52" cy="35" r="3.5" fill="#1599C8"/>
+  <circle cx="42" cy="46" r="3.5" fill="#20A6CF"/>
+</svg>

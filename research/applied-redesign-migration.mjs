@@ -1,0 +1,17 @@
+import { readFileSync, writeFileSync } from 'node:fs';
+let page = readFileSync('app/page.tsx','utf8');
+page = page.replace(/      <section className="life-section container">[\s\S]*?<\/section>\s*/, '');
+page = page.replace('<div className="why-intro">','<div className="why-intro">');
+page = page.replace('{t.contact}<Icon name="arrow" size={18}/></a></div><div className="why-items">', '{isAr?"اسأل مندوب المبيعات":"Ask a sales representative"}<Icon name="arrow" size={18}/></a><div className="representative-number"><Icon name="phone" size={20}/><div><span>{isAr?"تواصل معنا مباشرة":"Speak to us directly"}</span><a href="tel:+966547205593" dir="ltr">054 720 5593</a></div></div></div><div className="why-items">');
+page = page.replace('<span className="feature-icon"><Icon name={item.icon} size={24}/></span>', '<span className="feature-icon">0{i+1}</span>');
+page = page.replace('<span className="item-index">0{i+1}</span>', '');
+page = page.replace('<section className="steps-section section-pad container">','<section className="steps-band"><div className="steps-section section-pad container">');
+page = page.replace('</article>)}</div></section>\n\n      <section className="coverage-section"','</article>)}</div></div></section>\n\n      <section className="coverage-section"');
+page = page.replace('<div className="coverage-map"><SaudiMap locale={locale}/>','<div className="coverage-map"><div className="map-heading"><span>{isAr?"السعودية / مناطق الاستفسار":"SAUDI ARABIA / SERVICE ENQUIRIES"}</span><Icon name="pin" size={17}/></div><SaudiMap locale={locale}/>');
+page = page.replace('<div className="cta-decoration" aria-hidden="true"><span/><span/><span/><span/></div>','<svg className="cta-fiber-mark" viewBox="0 0 300 300" fill="none" aria-hidden="true"><path d="M10 290C10 140 95 25 240 20M10 290C70 140 160 85 275 90M10 290C110 190 200 160 275 170M10 290C140 240 210 235 245 240" stroke="currentColor" strokeWidth="2"/><g fill="currentColor"><circle cx="240" cy="20" r="6"/><circle cx="275" cy="90" r="6"/><circle cx="275" cy="170" r="6"/><circle cx="245" cy="240" r="6"/></g></svg>');
+page = page.replace('<Icon name="wifi" size={19}/>HOME, CONNECTED.', '<Icon name="whatsapp" size={19}/>{isAr?"تواصل مع فايبرنت":"CONTACT FIBERNET"}');
+page = page.replace('<Brand/></a><p>{t.footerDescription}', '<Brand light/></a><p>{t.footerDescription}');
+page = page.replace('<span>{t.copyright}</span>', '<span>{t.copyright}</span><a className="photo-credit" href="https://unsplash.com/photos/INNsF0Zz_kQ" target="_blank" rel="noopener noreferrer">Photo: Compare Fibre / Unsplash</a>');
+for(const [from,to] of Object.entries({'#6a8b80':'#5e7cba','#4e9c71':'#2462ff','#719b87':'#547ad1','#4caa78':'#5189ff','#c1f2d3':'#a9cbff','#86b89b':'#649cff','#b8edcc':'#87b7ff','#c2d9c5':'#bdceef'})) page=page.replaceAll(from,to);
+writeFileSync('app/page.tsx',page);
+console.log('Updated page structure; provider tabs preserved.');
